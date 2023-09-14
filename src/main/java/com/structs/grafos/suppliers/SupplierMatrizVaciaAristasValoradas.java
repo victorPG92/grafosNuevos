@@ -1,16 +1,20 @@
 package com.structs.grafos.suppliers;
 
-import java.util.function.Supplier;
+import com.structs.grafos.aristas.Arista;
 
-import com.structs.grafos.AristaConPeso;
-
-public class SupplierMatrizVaciaAristasValoradas<W> implements SuplierMatrizCuadradaVacia<AristaConPeso<W>>
+/**
+ * Provee una matriz cuadrada de tipo Arista sin peso
+ * @author vpenit
+ *
+ * @param <W>
+ */
+public class SupplierMatrizVaciaAristasValoradas implements SuplierMatrizCuadradaVacia<Arista>
 {
 
-	public AristaConPeso<W>[][] getMatriz(int v)
+	public Arista[][] getMatriz(int v)
 	{
 		
-		return new AristaConPeso[v][v];
+		return new Arista[v][v];
 	}
 
 

@@ -4,8 +4,18 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import com.structs.grafos.aristas.Arista;
 import com.structs.grafos.suppliers.SuplierMatrizCuadradaVacia;
 
+/**
+ * Grafo que usa una matriz de aristas para administrar las aristas
+ * de forma que en la posicion i j, puede existir la arista i j o null
+ * Usado para grafos densos.
+ * 
+ * @author vpenit
+ *
+ * @param <A>
+ */
 public class GrafoImplMatriz<A extends Arista> implements GrafoAristas<A>
 {
 

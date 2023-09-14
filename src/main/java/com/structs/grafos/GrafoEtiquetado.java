@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.structs.grafos.aristas.Arista;
+
 /**
  * Grafo que dado unos objetos V pertenecientes al dominio de los vertices
  * podemos obtener sus indices para un grafo de indices

@@ -1,5 +1,13 @@
-package com.structs.grafos;
+package com.structs.grafos.aristas;
 
+/**
+ * Arista que ademas de origen y destino tiene un objeto 
+ * dicho objeto puede ser un peso, int double, etc
+ * o puede ser una etiqueta o un conjunto de ambos.
+ * @author vpenit
+ *
+ * @param <W>
+ */
 public class AristaConPeso<W> extends Arista
 {
 

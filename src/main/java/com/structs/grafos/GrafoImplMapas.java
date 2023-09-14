@@ -4,6 +4,18 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import com.structs.grafos.aristas.Arista;
+
+/**
+ * Grafo que para implementar las aristas usa un mapa de mapas 
+ * mapa para ordenar los vertices origen 
+ * y mapa dentro del mapa, para ordenar los vertices destino, dado un vertice origen
+ * De esta manera se ahorra espacio si el grafo no es denso
+ * 
+ * @author vpenit
+ *
+ * @param <A>
+ */
 public class GrafoImplMapas<A extends Arista> implements GrafoAristas<A>
 {
 
@@ -11,10 +23,12 @@ public class GrafoImplMapas<A extends Arista> implements GrafoAristas<A>
 	protected Map<Integer,Map<Integer,/**? extends*/ A>> aristas = new HashMap<Integer,Map<Integer, A>>();
 	protected boolean esValorado;
 	
-	
+	int vMaxEncontradoHastaAhora=0;
 	
 	public void insertaArista(A a)
 	{
+		
+		vMaxEncontradoHastaAhora = Math.max(vMaxEncontradoHastaAhora, Math.max(a.getOrigen(), a.getDestino()));
 		// = new Arista(origen, destino);
 		Map<Integer,/** ? extends*/ A> aristasdeOrigen = aristas.get(a.getOrigen());
 		aristasdeOrigen.put(a.getDestino(), a);
@@ -53,6 +67,11 @@ public class GrafoImplMapas<A extends Arista> implements GrafoAristas<A>
 			
 			return Optional.ofNullable(aristasdeOrigen.get(destino));
 		}
+	}
+
+	public int V()
+	{
+		return vMaxEncontradoHastaAhora;
 	}
 	
 	

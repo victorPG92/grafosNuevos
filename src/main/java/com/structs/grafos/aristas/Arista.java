@@ -1,5 +1,10 @@
-package com.structs.grafos;
+package com.structs.grafos.aristas;
 
+/**
+ * Arista que contiene origen y destino
+ * @author vpenit
+ *
+ */
 public class Arista
 {
 
@@ -20,18 +25,24 @@ public class Arista
 	{
 		return origen;
 	}
-	public void setOrigen(int origen)
-	{
-		this.origen = origen;
-	}
+	
 	public int getDestino()
 	{
 		return destino;
 	}
+	
+	
+	/**
+	public void setOrigen(int origen)
+	{
+		this.origen = origen;
+	}
+	
 	public void setDestino(int destino)
 	{
 		this.destino = destino;
 	}
+	*/
 
 
 
