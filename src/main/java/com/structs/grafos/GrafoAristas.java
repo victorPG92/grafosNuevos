@@ -6,6 +6,8 @@ import java.util.Optional;
 public interface GrafoAristas<A extends Arista>
 {
 
+	int V();
+	
 	void insertaArista(A a);
 
 	Optional<Map<Integer, A>> getAristasOfIndex(int v);

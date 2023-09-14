@@ -1,0 +1,88 @@
+package com.structs.grafos;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
+import com.structs.grafos.suppliers.SuplierMatrizCuadradaVacia;
+
+public class GrafoImplMatriz<A extends Arista> implements GrafoAristas<A>
+{
+
+	int v;
+	protected A[][] aristas;
+	protected SuplierMatrizCuadradaVacia<A> suplierMatrizVacia; 
+	protected boolean esValorado;
+	
+	
+	public GrafoImplMatriz(int v)
+	{
+		this.v=v;
+		aristas= suplierMatrizVacia.getMatriz(v);
+		
+	}	
+	
+	public int V()
+	{
+		
+		return v;
+	}
+	
+	public void insertaArista(A a)
+	{
+		aristas[a.getOrigen()][a.getDestino()]= a;
+		
+	}
+		
+	public Optional<Map<Integer,A>> getAristasOfIndex(int v)
+	{
+		Map<Integer,A> map= new HashMap<Integer, A>();
+		for (int i = 0; i < v; i++) 
+		{
+			A a= aristas[v][i];
+			if(a!=null)
+			{
+				map.put(i, a);
+			}
+		}
+		
+		return Optional.ofNullable(map);
+
+		
+		
+	}
+	
+	
+	public Optional<A> getAristaIndices(int origen, int destino)
+	{
+		if(origen>= V() || destino >=V())
+		{
+			return Optional.empty();
+		}		
+			
+		return Optional.ofNullable(aristas[origen][destino]);
+		
+	}
+
+	public int getV()
+	{
+		return v;
+	}
+
+	public void setV(int v)
+	{
+		this.v = v;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
