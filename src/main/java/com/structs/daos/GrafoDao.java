@@ -1,4 +1,4 @@
-package com.structs.grafos;
+package com.structs.daos;
 
 public interface GrafoDao
 {
