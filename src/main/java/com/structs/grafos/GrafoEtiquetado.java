@@ -2,6 +2,7 @@ package com.structs.grafos;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import com.structs.grafos.aristas.Arista;
@@ -125,6 +126,28 @@ public class GrafoEtiquetado<V ,A extends Arista>
 	{
 		this.vertices = vertices;
 	}
+
+	public int V()
+	{
+		return grafoAristas.V();
+	}
+
+	public void insertaArista(A a)
+	{
+		grafoAristas.insertaArista(a);
+	}
+
+	public Optional<Map<Integer, A>> getAristasOfIndex(int v)
+	{
+		return grafoAristas.getAristasOfIndex(v);
+	}
+
+	public Optional<A> getAristaIndices(int origen, int destino)
+	{
+		return grafoAristas.getAristaIndices(origen, destino);
+	}
+	
+	
 	
 	
 	
