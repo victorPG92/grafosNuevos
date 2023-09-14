@@ -4,13 +4,42 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class GrafoEtiquetado<V ,A extends Arista> extends GrafoImplMapas<A>
+/**
+ * Grafo que dado unos objetos V pertenecientes al dominio de los vertices
+ * podemos obtener sus indices para un grafo de indices
+ * 
+ * @author vpenit
+ *
+ * @param <V>
+ * @param <A>
+ */
+public class GrafoEtiquetado<V ,A extends Arista> 
 {
 
+	private GrafoAristas<A> grafoAristas;
 	
 	private List<V> vertices = new ArrayList<V>();
 	
 	
+	
+	
+	public GrafoEtiquetado(GrafoAristas<A> grafoAristas)
+	{
+		super();
+		this.grafoAristas = grafoAristas;
+	}
+	
+	public GrafoEtiquetado(GrafoAristas<A> grafoAristas, List<V> vertices)
+	{
+		super();
+		this.grafoAristas = grafoAristas;
+		this.vertices = vertices;
+	}
+
+
+
+
+
 	public void insertaVertice(V vertice)
 	{
 		vertices.add(vertice);
@@ -71,7 +100,7 @@ public class GrafoEtiquetado<V ,A extends Arista> extends GrafoImplMapas<A>
 		else
 		{
 			
-			return getAristaIndices(optOrigen.get(),optDestino.get() );
+			return grafoAristas.getAristaIndices(optOrigen.get(),optDestino.get() );
 		}
 	}
 	

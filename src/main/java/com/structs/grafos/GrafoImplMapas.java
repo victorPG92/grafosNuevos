@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class GrafoImplMapas<A extends Arista>
+public class GrafoImplMapas<A extends Arista> implements GrafoAristas<A>
 {
 
 	
