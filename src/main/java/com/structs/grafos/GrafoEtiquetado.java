@@ -105,6 +105,26 @@ public class GrafoEtiquetado<V ,A extends Arista>
 			return grafoAristas.getAristaIndices(optOrigen.get(),optDestino.get() );
 		}
 	}
+
+	public GrafoAristas<A> getGrafoAristas()
+	{
+		return grafoAristas;
+	}
+
+	public void setGrafoAristas(GrafoAristas<A> grafoAristas)
+	{
+		this.grafoAristas = grafoAristas;
+	}
+
+	public List<V> getVertices()
+	{
+		return vertices;
+	}
+
+	public void setVertices(List<V> vertices)
+	{
+		this.vertices = vertices;
+	}
 	
 	
 	
