@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import com.structs.grafos.aristas.Arista;
+import com.structs.grafos.aristas.AristaConPeso;
 
 /**
  * Grafo que para implementar las aristas usa un mapa de mapas 
@@ -76,7 +77,26 @@ public class GrafoImplMapas<A extends Arista> implements GrafoAristas<A>
 	
 	
 	
+	public int gradoSalida(int nodo)
+	{
+		Optional<Map<Integer, A>> opt = getAristasOfIndex(nodo);
+		
+		return opt.isPresent()? opt.get().size():-1;
+	}
 	
+	public int gradoEntrada(int nodo)
+	{
+		int gradoSalida=0;
+		
+		for(Map<Integer, A> aris:aristas.values())
+		{
+		if(aris.containsKey(nodo))
+			gradoSalida++;
+		}
+		
+		return gradoSalida;
+		
+	}
 	
 	
 	

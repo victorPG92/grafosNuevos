@@ -16,7 +16,7 @@ import com.structs.grafos.aristas.Arista;
  * @param <V>
  * @param <A>
  */
-public class GrafoEtiquetado<V ,A extends Arista> 
+public class GrafoEtiquetado<V ,A extends Arista>  implements GrafoAristas<A>
 {
 
 	private GrafoAristas<A> grafoAristas;
@@ -145,6 +145,16 @@ public class GrafoEtiquetado<V ,A extends Arista>
 	public Optional<A> getAristaIndices(int origen, int destino)
 	{
 		return grafoAristas.getAristaIndices(origen, destino);
+	}
+
+	public int gradoEntrada(int nodo)
+	{
+		return grafoAristas.gradoEntrada(nodo);
+	}
+
+	public int gradoSalida(int nodo)
+	{
+		return grafoAristas.gradoSalida(nodo);
 	}
 	
 	

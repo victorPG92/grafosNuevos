@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import com.structs.grafos.aristas.Arista;
+import com.structs.grafos.aristas.AristaConPeso;
 
 /**
  * Grafo que tiene aristas y un numero limitado de vertices
@@ -45,4 +46,9 @@ public interface GrafoAristas<A extends Arista>
 	 */
 	Optional<A> getAristaIndices(int origen, int destino);
 
+	
+	
+	public int gradoEntrada(int nodo);
+	
+	public int gradoSalida(int nodo);
 }

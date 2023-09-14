@@ -1,10 +1,12 @@
 package com.structs.grafos;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Optional;
 
 import com.structs.grafos.aristas.Arista;
+import com.structs.grafos.aristas.AristaConPeso;
 import com.structs.grafos.suppliers.SuplierMatrizCuadradaVacia;
 
 /**
@@ -85,6 +87,34 @@ public class GrafoImplMatriz<A extends Arista> implements GrafoAristas<A>
 	}
 
 	
+	
+	public int gradoSalida(int nodo)
+	{
+		int gradoEntrada=0;
+		for (int i = 0; i < V(); i++)
+		{
+			if(aristas[nodo][i]!=null)
+			{
+				gradoEntrada++;
+			}
+		}
+		
+		return gradoEntrada;
+	}
+	
+	public int gradoEntrada(int nodo)
+	{
+		int gradoEntrada=0;
+		for (int i = 0; i < V(); i++)
+		{
+			if(aristas[i][nodo]!=null)
+			{
+				gradoEntrada++;
+			}
+		}
+		
+		return gradoEntrada;
+	}
 	
 	
 	
