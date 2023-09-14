@@ -1,33 +1,20 @@
 package com.structs.grafos;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
-public class GrafoEtiquetado<V ,A extends Arista>
+public class GrafoEtiquetado<V ,A extends Arista> extends GrafoImplMapas<A>
 {
 
 	
 	private List<V> vertices = new ArrayList<V>();
-	private Map<Integer,Map<Integer,/**? extends*/ A>> aristas = new HashMap<Integer,Map<Integer, A>>();
-	private boolean esValorado;
+	
 	
 	public void insertaVertice(V vertice)
 	{
 		vertices.add(vertice);
 	}
-	
-	public void insertaArista(A a)
-	{
-		// = new Arista(origen, destino);
-		Map<Integer,/** ? extends*/ A> aristasdeOrigen = aristas.get(a.getOrigen());
-		aristasdeOrigen.put(a.getDestino(), a);
-	}
-	
-	
-	
 	
 	public Optional<V> getVerticeIndice(int v)
 	{
@@ -70,42 +57,7 @@ public class GrafoEtiquetado<V ,A extends Arista>
 			return Optional.ofNullable(vertices.indexOf(v));
 		}
 	}
-	
-	public Optional<Map<Integer,A>> getAristasOfIndex(int v)
-	{
-		if(!aristas.containsKey(v))
-		{
-			return Optional.empty();
-		}
-		else
-		{
-			Map<Integer,/** ? extends*/ A> aristasdeOrigen = aristas.get(v);
 		
-			return Optional.ofNullable(aristasdeOrigen);
-		}
-	}
-	
-	
-	public Optional<A> getAristaIndices(int origen, int destino)
-	{
-		
-		Optional<Map<Integer, A>> aristasOrigenOpt = getAristasOfIndex(origen);
-		if(aristasOrigenOpt.isEmpty())
-		{
-			return Optional.empty();
-		}
-		else
-		{
-			Map<Integer,/** ? extends*/ A> aristasdeOrigen = aristasOrigenOpt.get();
-			if(!aristasdeOrigen.containsKey(destino))
-			{
-				return Optional.empty();
-			}
-			
-			return Optional.ofNullable(aristasdeOrigen.get(destino));
-		}
-	}
-	
 	public Optional<A> getArista(V origen, V destino)
 	{
 		Optional<Integer> optOrigen = indexOfV(origen);

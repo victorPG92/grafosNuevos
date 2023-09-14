@@ -1,23 +1,17 @@
 package com.structs.grafos;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public class GrafoImplMapas<V ,A extends Arista>
+public class GrafoImplMapas<A extends Arista>
 {
 
 	
-	private List<V> vertices = new ArrayList<V>();
-	private Map<Integer,Map<Integer,/**? extends*/ A>> aristas = new HashMap<Integer,Map<Integer, A>>();
-	private boolean esValorado;
+	protected Map<Integer,Map<Integer,/**? extends*/ A>> aristas = new HashMap<Integer,Map<Integer, A>>();
+	protected boolean esValorado;
 	
-	public void insertaVertice(V vertice)
-	{
-		vertices.add(vertice);
-	}
+	
 	
 	public void insertaArista(A a)
 	{
@@ -25,52 +19,7 @@ public class GrafoImplMapas<V ,A extends Arista>
 		Map<Integer,/** ? extends*/ A> aristasdeOrigen = aristas.get(a.getOrigen());
 		aristasdeOrigen.put(a.getDestino(), a);
 	}
-	
-	
-	
-	
-	public Optional<V> getVerticeIndice(int v)
-	{
 		
-		if(v>=vertices.size())
-		{
-			return Optional.empty();
-			
-		}else
-		{
-			return Optional.ofNullable(vertices.get(v));
-		}
-	}
-	
-	public Optional<V> getVertice(V v)
-	{
-		Optional<Integer> opt = indexOfV(v);
-		if(opt.isEmpty())
-			return Optional.empty();
-		else
-		{
-			return Optional.ofNullable(vertices.get(opt.get()));
-		}
-		
-	}
-	
-	public boolean existV(V v)
-	{
-		return vertices.contains(v);
-	}
-	
-	public Optional<Integer> indexOfV(V v)
-	{
-		if(!existV(v))
-		{
-			return Optional.empty();
-			
-		}else
-		{
-			return Optional.ofNullable(vertices.indexOf(v));
-		}
-	}
-	
 	public Optional<Map<Integer,A>> getAristasOfIndex(int v)
 	{
 		if(!aristas.containsKey(v))
@@ -106,22 +55,6 @@ public class GrafoImplMapas<V ,A extends Arista>
 		}
 	}
 	
-	public Optional<A> getArista(V origen, V destino)
-	{
-		Optional<Integer> optOrigen = indexOfV(origen);
-		Optional<Integer> optDestino = indexOfV(destino);
-		
-		
-		if(optOrigen.isEmpty() || optDestino.isEmpty())
-		{
-			return Optional.empty();
-		}
-		else
-		{
-			
-			return getAristaIndices(optOrigen.get(),optDestino.get() );
-		}
-	}
 	
 	
 	
