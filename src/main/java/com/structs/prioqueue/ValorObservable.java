@@ -15,6 +15,22 @@ public  class ValorObservable<T>
 		notificaTodos();
 	}
 	
+	
+	
+	public T getValor()
+	{
+		return valor;
+	}
+
+
+
+	private void setValor(T valor)
+	{
+		this.valor = valor;
+	}
+
+
+
 	public void addObserver(ObserverValor observer)
 	{
 		observadores.add(observer);
@@ -27,4 +43,10 @@ public  class ValorObservable<T>
 		}
 	}
 	
+	
+	@Override
+	public boolean equals(Object obj)
+	{
+		return valor.equals(((ValorObservable<T>)obj).valor);
+	}
 }

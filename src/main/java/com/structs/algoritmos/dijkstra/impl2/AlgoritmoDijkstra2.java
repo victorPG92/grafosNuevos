@@ -1,8 +1,7 @@
-package com.structs.algoritmos.dijkstra;
+package com.structs.algoritmos.dijkstra.impl2;
 
 import java.util.Optional;
 
-import com.structs.algoritmos.dijkstra.impl2.UtilsDijsktra2;
 import com.structs.grafos.GrafoEtiquetado;
 import com.structs.grafos.aristas.AristaConPeso;
 
